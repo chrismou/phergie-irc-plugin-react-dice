@@ -1,8 +1,16 @@
-# chrismou/phergie-irc-plugin-react-dice
+# Dice rolling plugin for [Phergie](http://github.com/phergie/phergie-irc-bot-react/)
 
 [Phergie](http://github.com/phergie/phergie-irc-bot-react/) plugin for returning randomly generated numbers in response to dice rolling requests.
 
 [![Build Status](https://travis-ci.org/chrismou/phergie-irc-plugin-react-dice.svg)](https://travis-ci.org/chrismou/phergie-irc-plugin-react-dice)
+[![Code Climate](https://codeclimate.com/github/chrismou/phergie-irc-plugin-react-dice/badges/gpa.svg)](https://codeclimate.com/github/chrismou/phergie-irc-plugin-react-dice)
+[![Test Coverage](https://codeclimate.com/github/chrismou/phergie-irc-plugin-react-dice/badges/coverage.svg)](https://codeclimate.com/github/chrismou/phergie-irc-plugin-react-dice)
+
+## About
+
+This plugin returns the total of a user specified number of dice rolls.
+
+By default, the plugin responds to "dice [number of dice] [number of sides on each dice] (number of sides is optional) - ie, dice 5 returns the total of five 6-sided dice rolls.
 
 ## Install
 
