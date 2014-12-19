@@ -53,11 +53,48 @@ class PluginTest extends \PHPUnit_Framework_TestCase
         $this->assertInternalType('array', $this->plugin->getSubscribedEvents());
     }
 
-    public function testHandleCommand()
+    /*public function testHandleCommand()
     {
         Phake::when($this->event)->getCustomCommand()->thenReturn("dice");
         Phake::when($this->event)->getCustomParams()->thenReturn(array("5"));
         $this->plugin->handleCommand($this->event, $this->queue);
+
+        foreach ((array)$helpLines as $responseLine) {
+            Phake::verify($this->queue)->ircPrivmsg('#channel', $responseLine);
+        }
+    }*/
+
+    /**
+     * Tests handleCommandHelp() is doing what it's supposed to
+     */
+    public function testHandleCommandInvalidParams()
+    {
+        Phake::when($this->event)->getSource()->thenReturn('#channel');
+        Phake::when($this->event)->getCommand()->thenReturn('PRIVMSG');
+        Phake::when($this->event)->getCustomParams()->thenReturn(array());
+
+        $this->plugin->handleCommand($this->event, $this->queue);
+
+        $helpLines = $this->plugin->getHelpLines();
+        $this->assertInternalType('array', $helpLines);
+
+        foreach ((array)$helpLines as $responseLine) {
+            Phake::verify($this->queue)->ircPrivmsg('#channel', $responseLine);
+        }
+    }
+
+    /**
+     * Tests handleCommandHelp() is doing what it's supposed to
+     */
+    public function testHandleCommandHelp()
+    {
+        Phake::when($this->event)->getSource()->thenReturn('#channel');
+        Phake::when($this->event)->getCommand()->thenReturn('PRIVMSG');
+
+        $this->plugin->handleCommandHelp($this->event, $this->queue);
+
+        $helpLines = $this->plugin->getHelpLines();
+        $this->assertInternalType('array', $helpLines);
 
         foreach ((array)$helpLines as $responseLine) {
             Phake::verify($this->queue)->ircPrivmsg('#channel', $responseLine);

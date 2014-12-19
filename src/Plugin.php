@@ -127,13 +127,17 @@ class Plugin extends AbstractPlugin
      */
     public function handleCommandHelp(Event $event, Queue $queue)
     {
-        $helpLines = array(
+        $this->sendIrcResponse($event, $queue, $this->getHelpLines());
+    }
+
+    public function getHelpLines()
+    {
+        return array(
             'Usage: dice [number of dice] [number of sides]',
             '[number of die] - how many dice to roll',
             '[number of sides] (optional) the number of sides on each die (defaults to 6)',
             'Returns randomly generated numbers in response to dice rolling requests'
         );
-        $this->sendIrcResponse($event, $queue, $helpLines);
     }
 
     /**
