@@ -53,16 +53,21 @@ class PluginTest extends \PHPUnit_Framework_TestCase
         $this->assertInternalType('array', $this->plugin->getSubscribedEvents());
     }
 
-    /*public function testHandleCommand()
+    public function testHandleCommand()
     {
+        Phake::when($this->event)->getSource()->thenReturn('#channel');
+        Phake::when($this->event)->getCommand()->thenReturn('PRIVMSG');
+        Phake::when($this->event)->getSource()->thenReturn('#channel');
         Phake::when($this->event)->getCustomCommand()->thenReturn("dice");
         Phake::when($this->event)->getCustomParams()->thenReturn(array("5"));
+
+        // Manually seed mt_rand
+        mt_srand(0);
         $this->plugin->handleCommand($this->event, $this->queue);
 
-        foreach ((array)$helpLines as $responseLine) {
-            Phake::verify($this->queue)->ircPrivmsg('#channel', $responseLine);
-        }
-    }*/
+        $response = $this->plugin->generateResponse($this->event, 20, array(5,1,4,6,4));
+        Phake::verify($this->queue)->ircPrivmsg('#channel', $response);
+    }
 
     /**
      * Tests handleCommandHelp() is doing what it's supposed to
@@ -71,7 +76,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
     {
         Phake::when($this->event)->getSource()->thenReturn('#channel');
         Phake::when($this->event)->getCommand()->thenReturn('PRIVMSG');
-        Phake::when($this->event)->getCustomParams()->thenReturn(array());
+        Phake::when($this->event)->getCustomParams()->thenReturn(array(1, 0));
 
         $this->plugin->handleCommand($this->event, $this->queue);
 

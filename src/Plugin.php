@@ -72,18 +72,20 @@ class Plugin extends AbstractPlugin
                 $results[] = $rollResult;
                 $total += $rollResult;
             }
-
-            $response = sprintf("%s: You rolled a %d %s",
-                $event->getNick(),
-                $total,
-                (count($results)>1) ? sprintf('(%s)', implode('+', $results)) : ''
-            );
-
+            $response = $this->generateResponse($event, $total, $results);
             $this->sendIrcResponseLine($event, $queue, $response);
-
         } else {
             $this->handleCommandHelp($event, $queue);
         }
+    }
+
+    public function generateResponse($event, $total, array $results)
+    {
+        return sprintf("%s: You rolled a %d %s",
+            $event->getNick(),
+            $total,
+            (count($results)>1) ? sprintf('(%s)', implode('+', $results)) : ''
+        );
     }
 
     /**
