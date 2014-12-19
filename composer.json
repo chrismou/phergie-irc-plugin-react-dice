@@ -1,0 +1,39 @@
+{
+    "name": "chrismou/phergie-irc-plugin-react-dice",
+    "description": "Phergie plugin for provides randomly generated numbers in response to dice rolling requests",
+    "keywords": [ "phergie", "irc", "bot", "plugin" ],
+    "homepage": "http://github.com/chrismou/phergie-irc-plugin-react-dice",
+    "license": "BSD-2-Clause",
+    "support": {
+        "email": "phergie@mou.me.uk",
+        "irc": "irc://irc.freenode.net/phergie",
+        "issues": "https://github.com/chrismou/phergie-irc-plugin-react-dice/issues",
+        "source": "https://github.com/chrismou/phergie-irc-plugin-react-dice"
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "phergie/phergie-irc-bot-react": "dev-master",
+        "phergie/phergie-irc-plugin-react-command": "~1.0"
+
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.1.*",
+        "phake/phake": "2.0.0-beta2",
+        "phergie/phergie-irc-plugin-react-commandhelp": "dev-master",
+        "phergie/phergie-irc-plugin-react-autojoin": "1.0.*",
+        "phergie/phergie-irc-plugin-react-pong": "dev-master"
+    },
+    "suggest": {
+        "phergie/phergie-irc-plugin-react-commandhelp": "provides interactive help for commands"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chrismou\\Phergie\\Plugin\\Dice\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Chrismou\\Phergie\\Tests\\Plugin\\Dice\\": "tests"
+        }
+    }
+}
