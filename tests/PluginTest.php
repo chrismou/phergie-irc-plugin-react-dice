@@ -23,14 +23,64 @@ use Chrismou\Phergie\Plugin\Dice\Plugin;
  */
 class PluginTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var \Chrismou\Phergie\Plugin\Dice\Plugin
+     */
+    protected $plugin;
 
+    /**
+     * @var \Phergie\Irc\Plugin\React\Command\CommandEvent
+     */
+    protected $event;
+
+    /**
+     * @var \Phergie\Irc\Bot\React\EventQueueInterface
+     */
+    protected $queue;
+
+    protected function setUp()
+    {
+        $this->plugin = new Plugin();
+        $this->event = $this->getMockEvent();
+        $this->queue = $this->getMockQueue();
+    }
 
     /**
      * Tests that getSubscribedEvents() returns an array.
      */
     public function testGetSubscribedEvents()
     {
-        $plugin = new Plugin;
-        $this->assertInternalType('array', $plugin->getSubscribedEvents());
+        $this->assertInternalType('array', $this->plugin->getSubscribedEvents());
+    }
+
+    public function testHandleCommand()
+    {
+        Phake::when($this->event)->getCustomCommand()->thenReturn("dice");
+        Phake::when($this->event)->getCustomParams()->thenReturn(array("5"));
+        $this->plugin->handleCommand($this->event, $this->queue);
+
+        foreach ((array)$helpLines as $responseLine) {
+            Phake::verify($this->queue)->ircPrivmsg('#channel', $responseLine);
+        }
+    }
+
+    /**
+     * Returns a mock command event.
+     *
+     * @return \Phergie\Irc\Plugin\React\Command\CommandEvent
+     */
+    protected function getMockEvent()
+    {
+        return Phake::mock('\Phergie\Irc\Plugin\React\Command\CommandEvent');
+    }
+
+    /**
+     * Returns a mock event queue.
+     *
+     * @return \Phergie\Irc\Bot\React\EventQueueInterface
+     */
+    protected function getMockQueue()
+    {
+        return Phake::mock('\Phergie\Irc\Bot\React\EventQueueInterface');
     }
 }

@@ -1,8 +1,8 @@
 # chrismou/phergie-irc-plugin-react-dice
 
-[Phergie](http://github.com/phergie/phergie-irc-bot-react/) plugin for provides randomly generated numbers in response to dice rolling requests.
+[Phergie](http://github.com/phergie/phergie-irc-bot-react/) plugin for returning randomly generated numbers in response to dice rolling requests.
 
-[![Build Status](https://secure.travis-ci.org/chrismou/phergie-irc-plugin-react-dice.png?branch=master)](http://travis-ci.org/chrismou/phergie-irc-plugin-react-dice)
+[![Build Status](https://travis-ci.org/chrismou/phergie-irc-plugin-react-dice.svg)](https://travis-ci.org/chrismou/phergie-irc-plugin-react-dice)
 
 ## Install
 

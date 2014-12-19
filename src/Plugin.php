@@ -23,15 +23,14 @@ use Phergie\Irc\Plugin\React\Command\CommandEvent as Event;
 class Plugin extends AbstractPlugin
 {
 
+    /**
+     * @var int
+     */
     protected $defaultDieSides = 6;
 
 
     /**
      * Accepts plugin configuration.
-     *
-     * Supported keys:
-     *
-     *
      *
      * @param array $config
      */
@@ -41,7 +40,7 @@ class Plugin extends AbstractPlugin
     }
 
     /**
-     *
+     * IRC events to watch
      *
      * @return array
      */
@@ -87,10 +86,23 @@ class Plugin extends AbstractPlugin
         }
     }
 
-    protected function doRoll($sides) {
-        return mt_rand(1, $sides);
+    /**
+     * Perform a single dice roll
+     *
+     * @param integer $sides
+     * @return int
+     */
+    protected function doRoll($sides)
+    {
+        return mt_rand(1, (int)$sides);
     }
 
+    /**
+     * Check the supplied parameters are valid
+     *
+     * @param \Phergie\Irc\Plugin\React\Command\CommandEvent $event
+     * @return bool
+     */
     protected function validateParams(Event $event) {
         $params = $event->getCustomParams();
         return (
