@@ -1,6 +1,6 @@
 {
     "name": "chrismou/phergie-irc-plugin-react-dice",
-    "description": "Phergie plugin for provides randomly generated numbers in response to dice rolling requests",
+    "description": "Phergie plugin for returning randomly generated numbers in response to dice rolling requests",
     "keywords": [ "phergie", "irc", "bot", "plugin" ],
     "homepage": "http://github.com/chrismou/phergie-irc-plugin-react-dice",
     "license": "BSD-2-Clause",
@@ -12,7 +12,7 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "phergie/phergie-irc-bot-react": "dev-master",
+        "phergie/phergie-irc-bot-react": "~1",
         "phergie/phergie-irc-plugin-react-command": "~1.0"
 
     },

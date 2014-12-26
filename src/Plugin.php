@@ -1,6 +1,6 @@
 <?php
 /**
- * Phergie plugin for provides randomly generated numbers in response to dice rolling requests (https://github.com/chrismou/phergie-irc-plugin-react-dice)
+ * Phergie plugin for returning randomly generated numbers in response to dice rolling requests (https://github.com/chrismou/phergie-irc-plugin-react-dice)
  *
  * @link https://github.com/chrismou/phergie-irc-plugin-react-dice for the canonical source repository
  * @copyright Copyright (c) 2014 Chris Chrisostomou (http://mou.me)
@@ -81,7 +81,7 @@ class Plugin extends AbstractPlugin
 
     public function generateResponse($event, $total, array $results)
     {
-        return sprintf("%s: You rolled a %d %s",
+        return sprintf("%s: You rolled %d %s",
             $event->getNick(),
             $total,
             (count($results)>1) ? sprintf('(%s)', implode('+', $results)) : ''
@@ -132,6 +132,11 @@ class Plugin extends AbstractPlugin
         $this->sendIrcResponse($event, $queue, $this->getHelpLines());
     }
 
+    /**
+     * Return an array of help command response lines
+     *
+     * @return array
+     */
     public function getHelpLines()
     {
         return array(
