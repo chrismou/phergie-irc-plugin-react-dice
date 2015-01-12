@@ -79,7 +79,13 @@ class Plugin extends AbstractPlugin
         }
     }
 
-    public function generateResponse($event, $total, array $results)
+    /**
+     * @param \Phergie\Irc\Plugin\React\Command\CommandEvent $event
+     * @param integer $total
+     * @param array $results
+     * @return string
+     */
+    public function generateResponse(Event $event, $total, array $results)
     {
         return sprintf("%s: You rolled %d %s",
             $event->getNick(),

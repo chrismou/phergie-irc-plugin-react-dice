@@ -19,7 +19,7 @@ The recommended method of installation is [through composer](http://getcomposer.
 ```JSON
 {
     "require": {
-        "chrismou/phergie-irc-plugin-react-dice": "dev-master"
+        "chrismou/phergie-irc-plugin-react-dice": "~1"
     }
 }
 ```
