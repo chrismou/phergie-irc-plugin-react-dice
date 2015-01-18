@@ -2,9 +2,9 @@
 
 [Phergie](http://github.com/phergie/phergie-irc-bot-react/) plugin for returning randomly generated numbers in response to dice rolling requests.
 
-[![Build Status](https://travis-ci.org/chrismou/phergie-irc-plugin-react-dice.svg)](https://travis-ci.org/chrismou/phergie-irc-plugin-react-dice)
-[![Code Climate](https://codeclimate.com/github/chrismou/phergie-irc-plugin-react-dice/badges/gpa.svg)](https://codeclimate.com/github/chrismou/phergie-irc-plugin-react-dice)
-[![Test Coverage](https://codeclimate.com/github/chrismou/phergie-irc-plugin-react-dice/badges/coverage.svg)](https://codeclimate.com/github/chrismou/phergie-irc-plugin-react-dice)
+[![Build Status](https://scrutinizer-ci.com/g/chrismou/phergie-irc-plugin-react-dice/badges/build.png?b=master)](https://scrutinizer-ci.com/g/chrismou/phergie-irc-plugin-react-dice/build-status/master)
+[![Code Coverage](https://scrutinizer-ci.com/g/chrismou/phergie-irc-plugin-react-dice/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/chrismou/phergie-irc-plugin-react-dice/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/chrismou/phergie-irc-plugin-react-dice/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/chrismou/phergie-irc-plugin-react-dice/?branch=master)
 
 ## About
 
