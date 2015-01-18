@@ -111,24 +111,14 @@ class Plugin extends AbstractPlugin
     {
         $params = $event->getCustomParams();
 
-        $paramCountCondition = false;
-        $paramOneCondition = false;
-        $paramTwoCondition = false;
-
-        // At least one parameter, no more than two
-        if (count($params)>=1 && count($params)<=2) {
-            $paramCountCondition = true;
-        }
+        // Must be no more than 2 parameters
+        $paramCountCondition = (count($params)>=1 && count($params)<=2);
 
         // Parameter 1 must be an integer over 1
-        if (is_numeric($params[0]) && $params[0] > 0) {
-            $paramOneCondition = true;
-        }
+        $paramOneCondition = (is_numeric($params[0]) && $params[0] > 0);
 
         // Parameter 2 should either not exist, or be an integer over 1
-        if (!isset($params[1]) || (isset($params[1]) && is_numeric($params[1]) && $params[1]>=1)) {
-            $paramTwoCondition = true;
-        }
+        $paramTwoCondition = (!isset($params[1]) || (isset($params[1]) && is_numeric($params[1]) && $params[1]>=1));
 
         return ($paramCountCondition && $paramOneCondition && $paramTwoCondition);
     }
