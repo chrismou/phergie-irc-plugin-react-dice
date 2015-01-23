@@ -105,7 +105,7 @@ class Plugin extends AbstractPlugin
      * Check the supplied parameters are valid
      *
      * @param \Phergie\Irc\Plugin\React\Command\CommandEvent $event
-     * @return bool
+     * @return boolean
      */
     protected function validateParams(Event $event)
     {
@@ -116,18 +116,36 @@ class Plugin extends AbstractPlugin
         );
     }
 
+    /**
+     * Verify the combination of parameters are valid
+     *
+     * @param \Phergie\Irc\Plugin\React\Command\CommandEvent $event
+     * @return boolean
+     */
     private function genericParamValidation(Event $event)
     {
         $params = $event->getCustomParams();
         return (count($params)>=1 && count($params)<=2);
     }
 
+    /**
+     * Verify parameter 1 is valid
+     *
+     * @param \Phergie\Irc\Plugin\React\Command\CommandEvent $event
+     * @return boolean
+     */
     private function firstParamValidation(Event $event)
     {
         $params = $event->getCustomParams();
         return (is_numeric($params[0]) && $params[0] > 0);
     }
 
+    /**
+     * Verify parameter 2 is valid
+     *
+     * @param Event $event
+     * @return bool
+     */
     private function secondParamValidation(Event $event)
     {
         $params = $event->getCustomParams();
