@@ -109,18 +109,29 @@ class Plugin extends AbstractPlugin
      */
     protected function validateParams(Event $event)
     {
+        return (
+            $this->genericParamValidation($event) &&
+            $this->firstParamValidation($event) &&
+            $this->secondParamValidation($event)
+        );
+    }
+
+    private function genericParamValidation(Event $event)
+    {
         $params = $event->getCustomParams();
+        return (count($params)>=1 && count($params)<=2);
+    }
 
-        // Must be no more than 2 parameters
-        $paramCountCondition = (count($params)>=1 && count($params)<=2);
+    private function firstParamValidation(Event $event)
+    {
+        $params = $event->getCustomParams();
+        return (is_numeric($params[0]) && $params[0] > 0);
+    }
 
-        // Parameter 1 must be an integer over 1
-        $paramOneCondition = (is_numeric($params[0]) && $params[0] > 0);
-
-        // Parameter 2 should either not exist, or be an integer over 1
-        $paramTwoCondition = (!isset($params[1]) || (isset($params[1]) && is_numeric($params[1]) && $params[1]>=1));
-
-        return ($paramCountCondition && $paramOneCondition && $paramTwoCondition);
+    private function secondParamValidation(Event $event)
+    {
+        $params = $event->getCustomParams();
+        return (!isset($params[1]) || (is_numeric($params[1]) && $params[1]>=1));
     }
 
     /**
