@@ -62,7 +62,7 @@ class Plugin extends AbstractPlugin
             $count = $params[0];
             $sides = (isset($params[1])) ? $params[1] : $this->defaultDieSides;
 
-            for ($roll=1; $roll<=$count; $roll++) {
+            for ($roll = 1; $roll <= $count; $roll++) {
                 $rollResult = $this->doRoll($sides);
                 $results[] = $rollResult;
                 $total += $rollResult;
@@ -86,7 +86,7 @@ class Plugin extends AbstractPlugin
             "%s: You rolled %d %s",
             $event->getNick(),
             $total,
-            (count($results)>1) ? sprintf('(%s)', implode('+', $results)) : ''
+            (count($results) > 1) ? sprintf('(%s)', implode('+', $results)) : ''
         );
     }
 
@@ -125,7 +125,7 @@ class Plugin extends AbstractPlugin
     private function genericParamValidation(Event $event)
     {
         $params = $event->getCustomParams();
-        return (count($params)>=1 && count($params)<=2);
+        return (count($params) >= 1 && count($params) <= 2);
     }
 
     /**
@@ -149,7 +149,7 @@ class Plugin extends AbstractPlugin
     private function secondParamValidation(Event $event)
     {
         $params = $event->getCustomParams();
-        return (!isset($params[1]) || (is_numeric($params[1]) && $params[1]>=1));
+        return (!isset($params[1]) || (is_numeric($params[1]) && $params[1] >= 1));
     }
 
     /**

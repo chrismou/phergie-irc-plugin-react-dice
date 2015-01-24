@@ -64,7 +64,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
         mt_srand(0);
         $this->plugin->handleCommand($this->event, $this->queue);
 
-        $response = $this->plugin->generateResponse($this->event, 20, array(5,1,4,6,4));
+        $response = $this->plugin->generateResponse($this->event, 20, array(5, 1, 4, 6, 4));
         Phake::verify($this->queue)->ircPrivmsg('#channel', $response);
     }
 

@@ -808,12 +808,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "5aaadd58aab6fd96200596820994641cb685f4aa"
+                "reference": "34cc484af1ca149188d0d9e91412191e398e0b67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/5aaadd58aab6fd96200596820994641cb685f4aa",
-                "reference": "5aaadd58aab6fd96200596820994641cb685f4aa",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/34cc484af1ca149188d0d9e91412191e398e0b67",
+                "reference": "34cc484af1ca149188d0d9e91412191e398e0b67",
                 "shasum": ""
             },
             "require": {
@@ -862,7 +862,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-01-15 05:45:24"
+            "time": "2015-01-24 10:06:35"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1349,24 +1349,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "e0a5fdd64463a0d524305c733e3e4391c76cf739"
+                "reference": "35ab8d385eef068186c83e23ae83c96b0288b3ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/e0a5fdd64463a0d524305c733e3e4391c76cf739",
-                "reference": "e0a5fdd64463a0d524305c733e3e4391c76cf739",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/35ab8d385eef068186c83e23ae83c96b0288b3ee",
+                "reference": "35ab8d385eef068186c83e23ae83c96b0288b3ee",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=5.3.3",
+                "sebastian/recursion-context": "~1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~4.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -1406,7 +1407,60 @@
                 "export",
                 "exporter"
             ],
-            "time": "2015-01-01 09:36:15"
+            "time": "2015-01-24 09:57:24"
+        },
+        {
+            "name": "sebastian/recursion-context",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/recursion-context.git",
+                "reference": "3989662bbb30a29d20d9faa04a846af79b276252"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/3989662bbb30a29d20d9faa04a846af79b276252",
+                "reference": "3989662bbb30a29d20d9faa04a846af79b276252",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jeff Welch",
+                    "email": "whatthejeff@gmail.com"
+                },
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                },
+                {
+                    "name": "Adam Harvey",
+                    "email": "aharvey@php.net"
+                }
+            ],
+            "description": "Provides functionality to recursively process PHP variables",
+            "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
+            "time": "2015-01-24 09:48:32"
         },
         {
             "name": "sebastian/version",
@@ -1450,12 +1504,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "f562c11a31743e3ed8d972fcadd1a90022c5c7e4"
+                "reference": "077ae1200d35a90947b80b4c64e022ddc81536d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/f562c11a31743e3ed8d972fcadd1a90022c5c7e4",
-                "reference": "f562c11a31743e3ed8d972fcadd1a90022c5c7e4",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/077ae1200d35a90947b80b4c64e022ddc81536d6",
+                "reference": "077ae1200d35a90947b80b4c64e022ddc81536d6",
                 "shasum": ""
             },
             "require": {
@@ -1488,7 +1542,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-16 14:55:54"
+            "time": "2015-01-20 01:40:35"
         }
     ],
     "aliases": [],
