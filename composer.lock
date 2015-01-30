@@ -1349,12 +1349,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "35ab8d385eef068186c83e23ae83c96b0288b3ee"
+                "reference": "84839970d05254c73cde183a721c7af13aede943"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/35ab8d385eef068186c83e23ae83c96b0288b3ee",
-                "reference": "35ab8d385eef068186c83e23ae83c96b0288b3ee",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/84839970d05254c73cde183a721c7af13aede943",
+                "reference": "84839970d05254c73cde183a721c7af13aede943",
                 "shasum": ""
             },
             "require": {
@@ -1367,7 +1367,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -1407,7 +1407,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2015-01-24 09:57:24"
+            "time": "2015-01-27 07:23:06"
         },
         {
             "name": "sebastian/recursion-context",
@@ -1504,12 +1504,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "077ae1200d35a90947b80b4c64e022ddc81536d6"
+                "reference": "02ba3dc638c5d3f0ab3b47ddb74f98c11dcc0c60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/077ae1200d35a90947b80b4c64e022ddc81536d6",
-                "reference": "077ae1200d35a90947b80b4c64e022ddc81536d6",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/02ba3dc638c5d3f0ab3b47ddb74f98c11dcc0c60",
+                "reference": "02ba3dc638c5d3f0ab3b47ddb74f98c11dcc0c60",
                 "shasum": ""
             },
             "require": {
@@ -1542,7 +1542,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-20 01:40:35"
+            "time": "2015-01-25 04:39:35"
         },
         {
             "name": "vectorface/dunit",
