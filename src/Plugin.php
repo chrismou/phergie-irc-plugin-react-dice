@@ -1,6 +1,6 @@
 <?php
 /**
- * Phergie plugin for returning randomly generated numbers in response to dice rolling requests (https://github.com/chrismou/phergie-irc-plugin-react-dice)
+ * Phergie plugin for returning randomly generated numbers in response to dice rolling requests
  *
  * @link https://github.com/chrismou/phergie-irc-plugin-react-dice for the canonical source repository
  * @copyright Copyright (c) 2014 Chris Chrisostomou (http://mou.me)
@@ -15,7 +15,7 @@ use Phergie\Irc\Bot\React\EventQueueInterface as Queue;
 use Phergie\Irc\Plugin\React\Command\CommandEvent as Event;
 
 /**
- * Plugin class.
+ * Plugin class
  *
  * @category Chrismou
  * @package Chrismou\Phergie\Plugin\Dice
