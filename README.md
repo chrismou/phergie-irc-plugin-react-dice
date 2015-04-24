@@ -10,7 +10,7 @@
 
 This plugin returns the total of a user specified number of dice rolls.
 
-By default, the plugin responds to "dice [number of dice] [number of sides on each dice] (number of sides is optional) - ie, dice 5 returns the total of five 6-sided dice rolls.
+By default, the plugin responds to "dice <number of dice> <number of sides on each die>" (number of sides is optional, defaults to 6); i.e. dice 5 returns the total of five 6-sided die rolls.
 
 ## Install
 
