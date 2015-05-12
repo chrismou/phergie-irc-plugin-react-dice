@@ -45,7 +45,7 @@ class Plugin extends AbstractPlugin
     /**
      * Accepts plugin configuration
      */
-    public function __construct($config = array())
+    public function __construct(array $config = array())
     {
         if (isset($config['defaultSides']) && is_numeric($config['defaultSides'])) {
             $this->defaultDieSides = (int) $config['defaultSides'];
