@@ -28,9 +28,21 @@ See Phergie documentation for more information on
 [installing and enabling plugins](https://github.com/phergie/phergie-irc-bot-react/wiki/Usage#plugins).
 
 ## Configuration
+To activate the plugin using the default settings, add the following to your phergie config:
 
 ```php
 new \Chrismou\Phergie\Plugin\Dice\Plugin
+```
+
+You can configure some of the settings as follows:
+
+```php
+new \Chrismou\Phergie\Plugin\Dice\Plugin(
+    "defaultSides": 6,      // The number of sides on the dice if excluded from the command
+    "maxRolls": 50,         // Maximum number of dice
+    "maxSides": 1000,       // Maximum number of sides per dice
+    "showSums": true        // Show the sums in the response
+)
 ```
 
 ## Tests

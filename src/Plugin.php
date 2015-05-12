@@ -28,10 +28,40 @@ class Plugin extends AbstractPlugin
     protected $defaultDieSides = 6;
 
     /**
+     * @var int
+     */
+    protected $maxDieSides = 1000;
+
+    /**
+     * @var int
+     */
+    protected $maxDieRolls = 50;
+
+    /**
+     * @var bool
+     */
+    protected $showSums = true;
+
+    /**
      * Accepts plugin configuration
      */
-    public function __construct()
+    public function __construct($config=array())
     {
+        if (isset($config['defaultSides']) && is_numeric($config['defaultSides'])) {
+            $this->defaultDieSides = (int) $config['defaultSides'];
+        }
+
+        if (isset($config['maxSides']) && is_numeric($config['maxSides'])) {
+            $this->maxDieSides = (int) $config['maxSides'];
+        }
+
+        if (isset($config['maxRolls']) && is_numeric($config['maxRolls'])) {
+            $this->maxDieRolls = (int) $config['maxRolls'];
+        }
+
+        if (isset($config['showSums'])) {
+            $this->showSums = (bool) $config['showSums'];
+        }
     }
 
     /**
@@ -86,7 +116,7 @@ class Plugin extends AbstractPlugin
             "%s: You rolled %d %s",
             $event->getNick(),
             $total,
-            (count($results) > 1) ? sprintf('(%s)', implode('+', $results)) : ''
+            ($this->showSums && count($results) > 1) ? sprintf('(%s)', implode('+', $results)) : ''
         );
     }
 
@@ -137,7 +167,7 @@ class Plugin extends AbstractPlugin
     private function firstParamValidation(Event $event)
     {
         $params = $event->getCustomParams();
-        return (is_numeric($params[0]) && $params[0] > 0);
+        return (is_numeric($params[0]) && $params[0] > 0 && $params[0] <= $this->maxDieRolls);
     }
 
     /**
@@ -149,7 +179,7 @@ class Plugin extends AbstractPlugin
     private function secondParamValidation(Event $event)
     {
         $params = $event->getCustomParams();
-        return (!isset($params[1]) || (is_numeric($params[1]) && $params[1] >= 1));
+        return (!isset($params[1]) || (is_numeric($params[1]) && $params[1] >= 1 && $params[1] <= $this->maxDieSides));
     }
 
     /**
@@ -172,8 +202,8 @@ class Plugin extends AbstractPlugin
     {
         return array(
             'Usage: dice [number of dice] [number of sides]',
-            '[number of die] - how many dice to roll',
-            '[number of sides] (optional) the number of sides on each die (defaults to 6)',
+            '[number of die] - how many dice to roll (maximum ' . $this->maxDieRolls . ')',
+            '[number of sides] (optional) the number of sides on each die (maximum ' . $this->maxDieSides . ' - defaults to ' . $this->defaultDieSides . ')',
             'Returns randomly generated numbers in response to dice rolling requests'
         );
     }
