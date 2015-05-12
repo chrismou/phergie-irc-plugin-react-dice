@@ -53,6 +53,9 @@ class PluginTest extends \PHPUnit_Framework_TestCase
         $this->assertInternalType('array', $this->plugin->getSubscribedEvents());
     }
 
+    /**
+     * Test the main command handler
+     */
     public function testHandleCommand()
     {
         Phake::when($this->event)->getSource()->thenReturn('#channel');
