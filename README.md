@@ -16,12 +16,8 @@ By default, the plugin responds to "dice <number of dice> <number of sides on ea
 
 The recommended method of installation is [through composer](http://getcomposer.org).
 
-```JSON
-{
-    "require": {
-        "chrismou/phergie-irc-plugin-react-dice": "~1"
-    }
-}
+```
+composer require chrismou/phergie-irc-plugin-react-google
 ```
 
 See Phergie documentation for more information on

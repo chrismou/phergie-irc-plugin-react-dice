@@ -1,9 +1,11 @@
 language: php
 
+sudo: false
+
 php:
-  - 5.4
   - 5.5
   - 5.6
+  - 7.0
   - hhvm
 
 matrix:
@@ -14,15 +16,16 @@ matrix:
 before_script:
   - travis_retry composer self-update
   - travis_retry composer install
+  - mkdir -p build/logs
 
 script:
   - bash -c 'if [ "$TRAVIS_PHP_VERSION" == "hhvm" ]; then vendor/bin/phpunit; fi;'
-  - bash -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then vendor/bin/phpunit --coverage-clover=coverage.clover; fi;'
+  - bash -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then vendor/bin/phpunit --coverage-clover build/logs/clover.xml; fi;'
 
 after_script:
+  - bash -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then CODECLIMATE_REPO_TOKEN=6cf000785d4521741f433ba2bbbdbfe21b42cc2a31d7114562c2a77c9871ecad ./vendor/bin/test-reporter; fi;'
   - bash -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi;'
-  - bash -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi;'
-
+  - bash -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml; fi;'
 notifications:
   slack:
     secure: bPPj49z2UE1bb8n9P8uuVy+ZHLtiGhxWGuJAE0vIs8hPWdqT4pJKFgCLhbf77Q/HoPRa6Bwe/llWxScny8w5Wo92X7JwYSjmxHUkHHa6ltX1fu6x+LLm7OVsV7hHvg0Q449AFE25q1sqW+9FwpX2tuEbPauAB1wk8TZpg6u6CI0=
