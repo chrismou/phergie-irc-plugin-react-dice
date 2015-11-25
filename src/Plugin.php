@@ -205,7 +205,11 @@ class Plugin extends AbstractPlugin
         return array(
             'Usage: dice [number of dice] [number of sides]',
             '[number of die] - how many dice to roll (maximum ' . $this->maxDieRolls . ')',
-            '[number of sides] (optional) the number of sides on each die (maximum ' . $this->maxDieSides . ' - defaults to ' . $this->defaultDieSides . ')',
+            sprintf(
+                '[number of sides] (optional) the number of sides on each die (maximum %s - defaults to %s)',
+                $this->maxDieSides,
+                $this->defaultDieSides
+            ),
             'Returns randomly generated numbers in response to dice rolling requests'
         );
     }
