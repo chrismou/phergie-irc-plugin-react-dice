@@ -19,7 +19,7 @@
         "source": "https://github.com/chrismou/phergie-irc-plugin-react-dice"
     },
     "require": {
-        "phergie/phergie-irc-bot-react": "<3.0",
+        "phergie/phergie-irc-bot-react": "~2.0",
         "phergie/phergie-irc-plugin-react-command": "~2.0"
 
     },
@@ -28,7 +28,8 @@
         "phake/phake": "2.0.0-beta2",
         "squizlabs/php_codesniffer": "*",
         "vectorface/dunit": "^2.1",
-        "codeclimate/php-test-reporter": "dev-master"
+        "codeclimate/php-test-reporter": "dev-master",
+        "phergie/phergie-irc-plugin-react-autojoin": "~2.0"
     },
     "suggest": {
         "phergie/phergie-irc-plugin-react-commandhelp": "provides interactive help for commands"
